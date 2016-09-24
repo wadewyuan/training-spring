@@ -1,0 +1,198 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 85px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 0 20px 20px 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/*
+ * User profile styles
+ */
+.user-profile {
+  min-width: 241px;
+}
+
+.user-profile>div {
+  min-width: 220px;
+}
+
+.user-profile .user-avatar {
+  text-align: center;
+  border-bottom: 1px solid #d5d5d5;
+  padding: 20px 0 20px 0;
+  background-color: #fff;
+}
+
+.user-profile .user-avatar .default-avatar {
+  font-size: 100px;
+}
+
+.user-profile .user-name {
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 20px;
+}
+
+.user-profile .basic-info {
+    padding: 20px 0 150px 0;
+    background-color: #fff;
+}
+
+.user-profile .basic-info .text-label {
+    color: #333;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.user-profile .basic-info .value {
+    color: #707070;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+.user-profile .basic-info .glyphicon, .user-profile .user-message .glyphicon {
+    color: #337ab7;
+}
+
+.user-profile .user-message {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px 0 70px 0;
+}
+
+.user-profile .user-message .badge {
+  background-color: #d9534f;
+}
+
+
+/*
+ * Show books table styles
+ */
+#tipMessage {
+  margin-top: 20px;
+}
+
+
+/*
+ * Edit book styles
+ */
+
+.form-edit-book h3 {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0 5px 0;
+}
+
+.form-edit-book .picture-preview {
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-color: #d5d5d5;
+  margin: 18px;
+}
+
+/*
+ * Book list styles
+ */
+.table-book-list .author{
+    color: #c3a8a8;
+    font-weight: 400;
+}

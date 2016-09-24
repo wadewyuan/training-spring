@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wadeyuan.training.entity.mappers.BookMapper">
+  
+  <resultMap type="Book" id="BookResultMap">
+    <result column="owner_id" property="ownerId" />
+    <result column="current_user_id" property="currentUserId" />
+    <result column="owner_name" property="ownerName" />
+    <result column="current_user_name" property="currentUserName" />
+  </resultMap>
+
+  <insert id="insertBook" useGeneratedKeys="true" keyProperty="id" parameterType="Book">
+    INSERT INTO book(name, author, picture, description, owner_id, current_user_id, created_time, updated_time) 
+    VALUES (#{name}, #{author}, #{picture}, #{description}, #{ownerId}, #{currentUserId}, NOW(), NOW())
+  </insert>
+  
+  <select id="seletBookById" resultType="Book" resultMap="BookResultMap">
+    SELECT * FROM book WHERE id = #{id}
+  </select>
+  
+  <insert id="updateBook" parameterType="Book">
+    UPDATE book SET name = #{name}, author= #{author}, picture = #{picture}, description= #{description}, updated_time=NOW() 
+    WHERE id = #{id}
+  </insert>
+  
+  <select id="countBookByUserIdStatus" parameterType="map" resultType="int">
+    SELECT count(b.id) FROM book b LEFT JOIN user u ON u.id = #{userId} 
+    <include refid="whereClauseByUserIdStatus"></include>
+  </select>
+  
+  <select id="selectBookByUserIdStatus" parameterType="map" resultType="Book" resultMap="BookResultMap">
+    SELECT b.*, c_owner.display_name AS owner_name, c.display_name AS current_user_name FROM book b LEFT JOIN user u ON u.id = #{userId}
+    LEFT JOIN contact c ON c.user_id = b.current_user_id LEFT JOIN contact c_owner ON c_owner.user_id = b.owner_id 
+    <include refid="whereClauseByUserIdStatus"></include>
+    ORDER BY b.updated_time DESC
+    <if test="offset != null and itemPerPage != null">
+      LIMIT #{offset}, #{itemPerPage}
+    </if>
+  </select>
+  
+  <sql id="whereClauseByUserIdStatus">
+    <choose>
+      <when test="status.name() == 'all'">
+        WHERE b.owner_id = u.id OR b.current_user_id = u.id
+      </when>
+      <when test="status.name() == 'in'">
+        WHERE b.owner_id != u.id AND b.current_user_id = u.id
+      </when>
+      <when test="status.name() == 'out'">
+        WHERE b.owner_id = u.id AND b.current_user_id != u.id
+      </when>
+      <when test="status.name() == 'remaining'">
+        WHERE b.owner_id = u.id AND b.current_user_id = u.id
+      </when>
+    </choose>
+  </sql>
+  
+  <delete id="deleteBookById">
+    DELETE FROM book WHERE id = #{id}
+  </delete>
+  
+</mapper>

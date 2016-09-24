@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller>
+  <action name="my-book" controller="bookController" methodName="showMyBook" />
+  <action name="edit-book" controller="bookController" methodName="edit" />
+  <action name="save-book" controller="bookController" methodName="save" />
+  <action name="delete-book" controller="bookController" methodName="delete" />
+  <action name="login" controller="userController" methodName="login" />
+  <action name="login-submit" controller="userController" methodName="loginSubmit" />
+  <action name="logout" controller="userController" methodName="logout" />
+</controller>
