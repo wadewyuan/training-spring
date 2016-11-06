@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -92,9 +93,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/logout", method=RequestMethod.GET)
-    public ModelAndView logout(Model model) {
+    public ModelAndView logout(Model model, SessionStatus sessionStatus) {
         ModelAndView modelAndView = new ModelAndView();
-        model.asMap().remove(Constants.USER); // clear the session attribute "USER";
+        sessionStatus.setComplete(); // Set session status as complete, clear "User" object stored in annotation @SessionAttributes
         modelAndView.setViewName(LOGIN_PAGE);
         return modelAndView;
     }
