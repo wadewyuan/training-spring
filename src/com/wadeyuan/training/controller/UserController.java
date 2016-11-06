@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +70,7 @@ public class UserController {
             Model model) {
 
 
-        User user = null;
+        User user;
         ModelAndView modelAndView = new ModelAndView();
 
         try {

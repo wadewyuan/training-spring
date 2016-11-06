@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User login(String userName, String password) throws ParameterException, ServiceException{
-        User user = null;
+        User user;
         ParameterException parameterException = new ParameterException();
         Map<String, String> errorFields = new HashMap<String, String>();
         parameterException.setErrorFields(errorFields);

@@ -25,13 +25,13 @@
   
   <select id="countBookByUserIdStatus" parameterType="map" resultType="int">
     SELECT count(b.id) FROM book b LEFT JOIN user u ON u.id = #{userId} 
-    <include refid="whereClauseByUserIdStatus"></include>
+    <include refid="whereClauseByUserIdStatus"/>
   </select>
   
   <select id="selectBookByUserIdStatus" parameterType="map" resultType="Book" resultMap="BookResultMap">
     SELECT b.*, c_owner.display_name AS owner_name, c.display_name AS current_user_name FROM book b LEFT JOIN user u ON u.id = #{userId}
     LEFT JOIN contact c ON c.user_id = b.current_user_id LEFT JOIN contact c_owner ON c_owner.user_id = b.owner_id 
-    <include refid="whereClauseByUserIdStatus"></include>
+    <include refid="whereClauseByUserIdStatus"/>
     ORDER BY b.updated_time DESC
     <if test="offset != null and itemPerPage != null">
       LIMIT #{offset}, #{itemPerPage}

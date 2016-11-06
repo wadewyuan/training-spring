@@ -3,6 +3,7 @@ package com.wadeyuan.training.filter;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -46,9 +47,7 @@ public class AuthenticationFilter implements Filter {
     public void init(FilterConfig fConfig) throws ServletException {
         String[] excludedURLsArray = fConfig.getInitParameter("excludedURLs").split(";");
         excludedURLs = new ArrayList<String>();
-        for(String url : excludedURLsArray) {
-            excludedURLs.add(url);
-        }
+        Collections.addAll(excludedURLs, excludedURLsArray);
         loginPage = fConfig.getInitParameter("loginPage");
     }
 
@@ -69,7 +68,7 @@ public class AuthenticationFilter implements Filter {
         String requestURL = httpRequest.getRequestURL().toString();
         Boolean isExcluedURL = Boolean.FALSE;
         for(String url : excludedURLs) {
-            if(requestURL.indexOf(url) >= 0) {
+            if(requestURL.contains(url)) {
                 isExcluedURL = Boolean.TRUE;
                 break;
             }

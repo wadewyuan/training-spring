@@ -9,7 +9,7 @@
     <%@ include file="../common/init-head.jsp" %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <%Book book = (Book) session.getAttribute(Constants.BOOK); %>
-    <%String pageTitle = ""; %>
+    <%String pageTitle; %>
     <%if(book == null) { %>
     <%    book = new Book(); %>
     <%    pageTitle = "新增图书"; %>

@@ -9,9 +9,9 @@ import com.wadeyuan.training.util.Pagination;
 public interface BookDao {
 
 
-    public int createBook(Book book);
+    int createBook(Book book);
 
-    public Book getBookById(int bookId);
+    Book getBookById(int bookId);
 
     /**
      *
@@ -19,13 +19,13 @@ public interface BookDao {
      * @return the updated rows, if 0 returned, meaning the book with specified ID doesn't exist
      * @throws Exception
      */
-    public int updateBook(Book book);
+    int updateBook(Book book);
 
-    public int countBooksByUserIdStatus(int userId, BookStatusEnum status);
+    int countBooksByUserIdStatus(int userId, BookStatusEnum status);
 
-    public List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status);
+    List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status);
 
-    public List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status, Pagination pagination);
+    List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status, Pagination pagination);
 
-    public int deleteBookById(int bookId);
+    int deleteBookById(int bookId);
 }

@@ -4,5 +4,5 @@ import com.wadeyuan.training.entity.User;
 
 public interface UserDao {
 
-    public User getUserByName(String userName);
+    User getUserByName(String userName);
 }

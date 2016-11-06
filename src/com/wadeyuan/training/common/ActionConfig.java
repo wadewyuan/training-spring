@@ -1,6 +1,6 @@
 package com.wadeyuan.training.common;
 
-public class ActionConfig {
+class ActionConfig {
     private String controller;
     private String method;
 

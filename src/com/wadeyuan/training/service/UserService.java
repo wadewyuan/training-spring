@@ -6,5 +6,5 @@ import com.wadeyuan.training.exception.ServiceException;
 
 public interface UserService {
 
-    public User login(String userName, String password) throws ParameterException, ServiceException;
+    User login(String userName, String password) throws ParameterException, ServiceException;
 }

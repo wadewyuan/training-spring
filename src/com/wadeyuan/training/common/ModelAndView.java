@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ModelAndView {
+class ModelAndView {
     private boolean isRedirect;
     private boolean isSessionInvalidated;
     private String view;

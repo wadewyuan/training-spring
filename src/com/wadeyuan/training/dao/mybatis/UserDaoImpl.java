@@ -15,8 +15,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 
     @Override
     public User getUserByName(String userName) {
-        User user = getSqlSession().selectOne(USER_MAPPER + SELECT_USER_BY_NAME, userName);
 
-        return user;
+        return getSqlSession().selectOne(USER_MAPPER + SELECT_USER_BY_NAME, userName);
     }
 }

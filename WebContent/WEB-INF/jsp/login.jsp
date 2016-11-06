@@ -41,9 +41,9 @@
       <form class="form-signin" id="loginForm" method="post" action="<%=contextPath %>/user/login">
         <h2 class="form-signin-heading">Please sign in</h2>
         <input type="hidden" name="<%=Constants.REDIRECT_TO %>" value="<%=request.getParameter(Constants.REDIRECT_TO) != null ? request.getParameter(Constants.REDIRECT_TO) : "" %>">
-        <label for="inputUsername" class="sr-only">User Name</label>
+        <label for="username" class="sr-only">User Name</label>
         <input type="text" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <%String errorMessage = request.getAttribute(Constants.ERROR_MESSAGE) == null ? "" : (String) request.getAttribute(Constants.ERROR_MESSAGE); %>
         <%if(!errorMessage.isEmpty()) {%>

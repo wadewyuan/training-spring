@@ -64,7 +64,7 @@ public class BookController {
         objects.put(Constants.COUNT_REMAINING, remainingCount);
         objects.put(Constants.PAGE, page);
 
-        BookStatusEnum statusEnum = null;
+        BookStatusEnum statusEnum;
         try {
             statusEnum = BookStatusEnum.valueOf(status);
         } catch(Exception e) {

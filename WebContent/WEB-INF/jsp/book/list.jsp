@@ -31,7 +31,7 @@
                 $("#deleteConfirmation").modal("hide");
             });
         });
-    })
+    });
     
     /**
      * type: 'success', 'danger', 'warning'

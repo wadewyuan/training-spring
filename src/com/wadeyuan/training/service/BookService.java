@@ -16,15 +16,15 @@ public interface BookService {
      * @throws ServiceException
      * @throws ParameterException
      */
-    public int saveBook(Book book) throws ServiceException, ParameterException;
+    int saveBook(Book book) throws ServiceException, ParameterException;
 
-    public Book getBookById(int bookId) throws ServiceException;
+    Book getBookById(int bookId) throws ServiceException;
 
-    public List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status);
+    List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status);
 
-    public List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status, Pagination pagination);
+    List<Book> getBooksByUserIdStatus(int userId, BookStatusEnum status, Pagination pagination);
 
-    public int countBooksByUserIdStatus(int userId, BookStatusEnum status);
+    int countBooksByUserIdStatus(int userId, BookStatusEnum status);
 
-    public int deleteBookById(int bookId) throws ServiceException;
+    int deleteBookById(int bookId) throws ServiceException;
 }

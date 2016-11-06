@@ -35,8 +35,7 @@ public class BookDaoImpl extends SqlSessionDaoSupport implements BookDao{
     @Override
     public Book getBookById(int id) {
 
-        Book book = getSqlSession().selectOne(BOOK_MAPPER + SELECT_BOOK_BY_ID, id);
-        return book;
+        return getSqlSession().selectOne(BOOK_MAPPER + SELECT_BOOK_BY_ID, id);
     }
 
     /**
@@ -75,8 +74,7 @@ public class BookDaoImpl extends SqlSessionDaoSupport implements BookDao{
             params.put("offset", pagination.getOffset());
             params.put("itemPerPage", pagination.getItemPerPage());
         }
-        List<Book> books = getSqlSession().selectList(BOOK_MAPPER + SELECT_BOOK_BY_USER_ID_STATUS, params);
-        return books;
+        return getSqlSession().selectList(BOOK_MAPPER + SELECT_BOOK_BY_USER_ID_STATUS, params);
     }
 
     @Override
