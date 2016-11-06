@@ -55,4 +55,15 @@ public class Pagination {
     public boolean isLastPage() {
         return currentPage >= this.getPageCount();
     }
+
+    @Override
+    public String toString() {
+        return "Pagination{" +
+                "totalCount=" + totalCount +
+                ", pageCount=" + pageCount +
+                ", itemPerPage=" + itemPerPage +
+                ", currentPage=" + currentPage +
+                ", offset=" + offset +
+                '}';
+    }
 }
